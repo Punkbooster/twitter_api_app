@@ -11,5 +11,14 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require bootstrap
  *= require_self
  */
+
+
+.wrapper {
+	width: 60%;
+	max-width: 1140px;
+	margin: 7rem auto;
+	min-height: 365px;
+}
