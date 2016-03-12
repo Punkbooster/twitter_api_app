@@ -11,12 +11,24 @@
 				.navbar-header
 					%a.navbar-brand{:href => "#"} Twitter API
 					%ul.nav.navbar-nav
-						%li.active
-							=link_to "Home", root_path
-						%li
-							=link_to "New Article", new_article_path	
-						%li
-							=link_to "Sign In with Twitter", "/auth/twitter"
-		.wrapper			
+						-if current_user
+							%li.active
+								=link_to "Home", root_path
+							%li
+								=link_to "New Article", new_article_path	
+							%li
+								=link_to "Sign Out"	, signout_path
+						-else
+							%li.active
+								=link_to "Home", root_path
+							%li
+								=link_to "New Article", new_article_path	
+							%li
+								=link_to "Sign In with Twitter", "/auth/twitter"
+		.wrapper 
+			.div#user_name
+				- if 	current_user
+					%h3
+						Signed In as #{current_user.name}!									
 			= yield
 
